@@ -1,7 +1,28 @@
 body {
-	background-color: black;
+	background-color: white;
 }
 
 .body_text {
-	color: white;
+	color: black;
+	
+}
+
+#header {
+	border-bottom: #f6f0e2 solid 3px;
+	padding: 22px 10px 22px 10px;
+	font-family: monospace;
+}
+
+.horizontal_flexbox {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex_item {
+	flex-grow: 10;
+}
+
+.header_tab {
+	text-align: center;
+	cursor: pointer;
 }
