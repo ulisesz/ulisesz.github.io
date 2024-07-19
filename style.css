@@ -2,15 +2,11 @@ body {
 	background-color: white;
 }
 
-.body_text {
-	color: black;
-	
-}
-
 #header {
-	border-bottom: #f6f0e2 solid 3px;
-	padding: 22px 10px 22px 10px;
+	border-bottom: #f6f0e2 solid medium;
+	padding: 2% 1% 2% 1%;
 	font-family: monospace;
+	font-size: 90%
 }
 
 .horizontal_flexbox {
