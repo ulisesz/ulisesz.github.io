@@ -1,11 +1,11 @@
 body {
 	background-color: white;
+	font-family: monospace;
 }
 
 #header {
 	border-bottom: #f6f0e2 solid medium;
 	padding: 2% 1% 2% 1%;
-	font-family: monospace;
 	font-size: 90%
 }
 
