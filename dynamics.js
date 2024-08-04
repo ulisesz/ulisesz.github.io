@@ -33,14 +33,14 @@ function LoadSplashPageText()
 	}
 }
 
-function RenderSplashPageText()
+async function RenderSplashPageText()
 {
-	RenderHeader();
-	//RenderP1();
+	await RenderHeader();
+	await RenderP1();
 	//RenderP2();
 }
 
-function RenderHeader()
+async function RenderHeader()
 {
 	var homeTextField = document.querySelector("#home_text");
 	if (homeTextField)
@@ -53,8 +53,29 @@ function RenderHeader()
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
-		RenderOutput();
+		await RenderOutput();
 	}	
+	return new Promise((resolve) => {
+        resolve("rendered");
+	});
+}
+
+async function RenderP1()
+{
+	var homeTextField = document.querySelector("#home_text");
+	if (homeTextField)
+	{
+		var p1 = homeTextField.children[P1];
+		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p1, g_outputType.TEXT, g_splashPageText["p1"]);
+		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
+		await RenderOutput();
+	}	
+	return new Promise((resolve) => {
+        resolve("rendered");
+	});
 }
 
 function QueueOutput(htmlField, type, content)
@@ -85,7 +106,7 @@ async function RenderOutput()
 			for (const character of content)
 			{
 				await resolve2();
-				field.innerText += character;
+				field.textContent += character;
 			}
 		}
 		else
@@ -93,6 +114,17 @@ async function RenderOutput()
 			console.log("Unsupported output type");
 		}
 	}
+	
+	FlushQueue();
+	
+	return new Promise((resolve) => {
+        resolve("rendered");
+	});
+}
+
+function FlushQueue()
+{
+	g_outputQueue = [];
 }
 
 function resolve1() {
