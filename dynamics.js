@@ -37,7 +37,7 @@ async function RenderSplashPageText()
 {
 	await RenderHeader();
 	await RenderP1();
-	//RenderP2();
+	await RenderP2();
 }
 
 async function RenderHeader()
@@ -71,6 +71,24 @@ async function RenderP1()
 		QueueOutput(p1, g_outputType.TEXT, g_splashPageText["p1"]);
 		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
+		await RenderOutput();
+	}	
+	return new Promise((resolve) => {
+        resolve("rendered");
+	});
+}
+
+async function RenderP2()
+{
+	var homeTextField = document.querySelector("#home_text");
+	if (homeTextField)
+	{
+		var p2 = homeTextField.children[P2];
+		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p2, g_outputType.TEXT, g_splashPageText["p2"]);
+		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -139,7 +157,7 @@ function resolve2() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("resolve2");
-    }, 100);
+    }, 80);
   });
 }
 
