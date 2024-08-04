@@ -38,6 +38,7 @@ async function RenderSplashPageText()
 	await RenderHeader();
 	await RenderP1();
 	await RenderP2();
+	await InfiniteBlink();
 }
 
 async function RenderHeader()
@@ -90,6 +91,23 @@ async function RenderP2()
 		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
 		await RenderOutput();
+	}	
+	return new Promise((resolve) => {
+        resolve("rendered");
+	});
+}
+
+async function InfiniteBlink()
+{
+	var homeTextField = document.querySelector("#home_text");
+	if (homeTextField)
+	{
+		var p2 = homeTextField.children[P2];
+		while (true)
+		{
+			QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
+			await RenderOutput();			
+		}
 	}	
 	return new Promise((resolve) => {
         resolve("rendered");
