@@ -17,20 +17,10 @@ function RunStartup()
 
 function LoadSplashPageText()
 {
-	var homeTextField = document.querySelector("#home_text");
-	if (homeTextField)
-	{
-		var htmlFields = homeTextField.children;
-		
-		g_splashPageText["header"] = htmlFields[HEADER].innerText;
-		htmlFields[HEADER].innerText = "";
-		
-		g_splashPageText["p1"] = htmlFields[P1].innerText;
-		htmlFields[P1].innerText = "";
-		
-		g_splashPageText["p2"] = htmlFields[P2].innerText;
-		htmlFields[P2].innerText = "";
-	}
+	g_splashPageText["header"] = "Welcome!";
+	g_splashPageText["p1"] = "I'm glad you've found your way to this page!";
+	g_splashPageText["p2"] = " While you're here, please take a look around & reach out for any inquiries.";
+	g_splashPageText["p3"] = "- Ulises";
 }
 
 async function RenderSplashPageText()
@@ -49,9 +39,7 @@ async function RenderHeader()
 		var header = homeTextField.children[HEADER];
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
-		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(header, g_outputType.TEXT, g_splashPageText["header"]);
-		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(header, g_outputType.BLINK, g_terminalCharacter);
 		await RenderOutput();
@@ -72,6 +60,8 @@ async function RenderP1()
 		QueueOutput(p1, g_outputType.TEXT, g_splashPageText["p1"]);
 		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
 		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p1, g_outputType.TEXT, g_splashPageText["p2"]);
+		QueueOutput(p1, g_outputType.BLINK, g_terminalCharacter);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -86,10 +76,7 @@ async function RenderP2()
 	{
 		var p2 = homeTextField.children[P2];
 		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
-		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
-		QueueOutput(p2, g_outputType.TEXT, g_splashPageText["p2"]);
-		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
-		QueueOutput(p2, g_outputType.BLINK, g_terminalCharacter);
+		QueueOutput(p2, g_outputType.TEXT, g_splashPageText["p3"]);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -175,7 +162,7 @@ function resolve2() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("resolve2");
-    }, 80);
+    }, 55);
   });
 }
 
