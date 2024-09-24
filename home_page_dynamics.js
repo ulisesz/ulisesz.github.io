@@ -15,8 +15,8 @@ function RenderHomepage()
 function LoadSplashPageText()
 {
 	g_splashPageText["header"] = "Welcome!";
-	g_splashPageText["p1"] = "I'm glad you've found your way to this page!";
-	g_splashPageText["p2"] = " While you're here, please take a look around & reach out for any inquiries.";
+	g_splashPageText["p1"] = "Glad you've arrived!";
+	g_splashPageText["p2"] = " Take a look around & reach out for any inquiries.";
 	g_splashPageText["p3"] = "- Ulises";
 }
 

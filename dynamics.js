@@ -57,7 +57,7 @@ function resolve1() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("resolve1");
-    }, 500);
+    }, 350);
   });
 }
 
@@ -65,6 +65,6 @@ function resolve2() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("resolve2");
-    }, 55);
+    }, 40);
   });
 }
