@@ -6,7 +6,7 @@ var P2 = 4;
 var BLINK = g_outputType.BLINK;
 var TEXT = g_outputType.TEXT;
 
-function RunStartup()
+function RenderHomepage()
 {
 	LoadSplashPageText();
 	RenderSplashPageText();
@@ -34,11 +34,11 @@ async function RenderHeader()
 	if (homeTextField)
 	{
 		var header = homeTextField.children[HEADER];
-		Queue(header, BLINK, g_terminalCharacter);
-		Queue(header, BLINK, g_terminalCharacter);
-		Queue(header, TEXT, g_splashPageText["header"]);
-		Queue(header, BLINK, g_terminalCharacter);
-		Queue(header, BLINK, g_terminalCharacter);
+		QueueOutput(header, BLINK, g_terminalCharacter);
+		QueueOutput(header, BLINK, g_terminalCharacter);
+		QueueOutput(header, TEXT, g_splashPageText["header"]);
+		QueueOutput(header, BLINK, g_terminalCharacter);
+		QueueOutput(header, BLINK, g_terminalCharacter);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -52,13 +52,13 @@ async function RenderP1()
 	if (homeTextField)
 	{
 		var p1 = homeTextField.children[P1];
-		Queue(p1, BLINK, g_terminalCharacter);
-		Queue(p1, BLINK, g_terminalCharacter);
-		Queue(p1, TEXT, g_splashPageText["p1"]);
-		Queue(p1, BLINK, g_terminalCharacter);
-		Queue(p1, BLINK, g_terminalCharacter);
-		Queue(p1, TEXT, g_splashPageText["p2"]);
-		Queue(p1, BLINK, g_terminalCharacter);
+		QueueOutput(p1, BLINK, g_terminalCharacter);
+		QueueOutput(p1, BLINK, g_terminalCharacter);
+		QueueOutput(p1, TEXT, g_splashPageText["p1"]);
+		QueueOutput(p1, BLINK, g_terminalCharacter);
+		QueueOutput(p1, BLINK, g_terminalCharacter);
+		QueueOutput(p1, TEXT, g_splashPageText["p2"]);
+		QueueOutput(p1, BLINK, g_terminalCharacter);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -72,8 +72,8 @@ async function RenderP2()
 	if (homeTextField)
 	{
 		var p2 = homeTextField.children[P2];
-		Queue(p2, BLINK, g_terminalCharacter);
-		Queue(p2, TEXT, g_splashPageText["p3"]);
+		QueueOutput(p2, BLINK, g_terminalCharacter);
+		QueueOutput(p2, TEXT, g_splashPageText["p3"]);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -89,7 +89,7 @@ async function InfiniteBlink()
 		var p2 = homeTextField.children[P2];
 		while (true)
 		{
-			Queue(p2, BLINK, g_terminalCharacter);
+			QueueOutput(p2, BLINK, g_terminalCharacter);
 			await RenderOutput();			
 		}
 	}	
@@ -98,9 +98,4 @@ async function InfiniteBlink()
 	});
 }
 
-function Queue(htmlField, type, content)
-{
-	QueueOutput(htmlField, type, content);
-}
-
-RunStartup();
+RenderHomepage();
