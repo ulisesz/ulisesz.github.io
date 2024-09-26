@@ -24,7 +24,7 @@ async function DisplayText()
 
 async function RenderText()
 {
-	var textField = document.querySelector("#about_text");
+	var textField = document.querySelector("#about_page");
 	if (textField)
 	{
 		var field = textField.children[TEXT_FIELD];
@@ -42,7 +42,7 @@ async function RenderText()
 
 async function InfiniteBlink()
 {
-	var textField = document.querySelector("#about_text");
+	var textField = document.querySelector("#about_page");
 	if (textField)
 	{
 		var field = textField.children[TEXT_FIELD];
