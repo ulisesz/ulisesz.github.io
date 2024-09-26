@@ -56,7 +56,7 @@ async function CreateContactHyperlink()
 		var field = textField.children[CONTACT_FIELD];
 		var content = field.innerHTML;
 		var urlPattern = /\b(https?:\/\/[^\s]+)\b/g;
-		var newContent = content.replace(urlPattern, '<a href="$1">$1</a>');
+		var newContent = content.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
 		field.innerHTML = newContent;
 	}
 }
