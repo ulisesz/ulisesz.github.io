@@ -24,6 +24,7 @@ function LoadText()
 async function DisplayText()
 {
 	await RenderText();
+	await CreateContactHyperlink();
 	await InfiniteBlink();
 }
 
@@ -45,6 +46,19 @@ async function RenderText()
 	return new Promise((resolve) => {
         resolve("rendered");
 	});
+}
+
+async function CreateContactHyperlink()
+{
+	var textField = GetPageObject();
+	if (textField)
+	{
+		var field = textField.children[CONTACT_FIELD];
+		var content = field.innerHTML;
+		var urlPattern = /\b(https?:\/\/[^\s]+)\b/g;
+		var newContent = content.replace(urlPattern, '<a href="$1">$1</a>');
+		field.innerHTML = newContent;
+	}
 }
 
 async function InfiniteBlink()
