@@ -17,15 +17,14 @@ async function RenderOutput()
 		var type = output["Type"];
 		var content = output["Content"]
 		var field = output["Field"];
-		var fieldText = field.innerText;
 		
 		if (type === g_outputType.BLINK)
 		{
 			await resolve1();
-			field.innerText = fieldText + content;
+			field.innerHTML += content;
 			
 			await resolve1();
-			field.innerText = fieldText;
+			field.innerHTML = field.innerHTML.slice(0,-1);
 		}
 		else if (type === g_outputType.TEXT)
 		{

@@ -18,7 +18,7 @@ function RenderPage()
 function LoadText()
 {
 	g_pageText["text1"] = "contact:";
-	g_pageText["text2"] = " https://www.linkedin.com/in/ulises-zaragoza ";
+	g_pageText["text2"] = " https://www.linkedin.com/in/ulises-zaragoza";
 }
 
 async function DisplayText()
