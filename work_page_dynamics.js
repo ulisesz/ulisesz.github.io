@@ -3,6 +3,7 @@ var g_workPageText = {};
 var TEXT_FIELD = 0;
 var P1_FIELD = 1;
 var EXPERIENCE_FIELD = 3;
+var BAR_FIELD_1 = 4;
 var EXPERIENCE_1 = 5;
 var DATE_1 = 6;
 var DESCRIPTION_1 = 7;
@@ -32,6 +33,7 @@ async function DisplayText()
 	await RenderHeader();
 	await RenderP1();
 	await RenderExperienceText();
+	await RenderBar();
 	await RenderFirstExperience();
 	//await InfiniteBlink();
 }
@@ -81,6 +83,19 @@ async function RenderExperienceText()
 		QueueOutput(field, TEXT, g_workPageText["experience"]);
 		QueueOutput(field, BLINK, g_terminalCharacter);
 		await RenderOutput();
+	}	
+	return new Promise((resolve) => {
+        resolve("rendered");
+	});
+}
+
+async function RenderBar()
+{
+	var textField = document.querySelector(g_workPageId);
+	if (textField)
+	{
+		var field = textField.children[BAR_FIELD_1];
+		field.style.display = "block";
 	}	
 	return new Promise((resolve) => {
         resolve("rendered");

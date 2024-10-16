@@ -64,3 +64,10 @@ body {
 #about_page a, a:visited, a:hover, a:active {
   color: #0000EE;	
 }
+
+.bar {
+	padding-top: 0.1%;
+	padding-bottom: 0.1%;
+	background-color: black;
+	display: none;
+}
