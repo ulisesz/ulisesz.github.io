@@ -41,6 +41,21 @@ body {
 	padding-right: 30%;
 }
 
+#work_page h3 {
+	margin-bottom: 0;
+}
+
+.experience_date {
+	margin-top: 0.5%;
+	margin-bottom: 0;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.experience_text {
+	margin-top: 0.5%
+}
+
 .page_text {
 	margin-left: 2%;
 	margin-right: 2%;
