@@ -9,6 +9,7 @@ var DATE_1 = 6;
 var DESCRIPTION_1 = 7;
 var BLINK = g_outputType.BLINK;
 var TEXT = g_outputType.TEXT;
+var UNHIDE = g_outputType.UNHIDE;
 var g_workPageId = "#work_page";
 
 function RenderPage()
@@ -62,7 +63,6 @@ async function RenderP1()
 	{
 		var field = textField.children[P1_FIELD];
 		QueueOutput(field, BLINK, g_terminalCharacter);
-		QueueOutput(field, BLINK, g_terminalCharacter);
 		QueueOutput(field, TEXT, g_workPageText["text2"]);
 		QueueOutput(field, BLINK, g_terminalCharacter);
 		QueueOutput(field, TEXT, g_workPageText["text3"]);
@@ -82,6 +82,7 @@ async function RenderExperienceText()
 		QueueOutput(field, BLINK, g_terminalCharacter);
 		QueueOutput(field, TEXT, g_workPageText["experience"]);
 		QueueOutput(field, BLINK, g_terminalCharacter);
+		QueueOutput(field, BLINK, g_terminalCharacter);
 		await RenderOutput();
 	}	
 	return new Promise((resolve) => {
@@ -95,7 +96,7 @@ async function RenderBar()
 	if (textField)
 	{
 		var field = textField.children[BAR_FIELD_1];
-		field.style.display = "block";
+		QueueOutput(field, UNHIDE, 'block');
 	}	
 	return new Promise((resolve) => {
         resolve("rendered");
@@ -108,6 +109,7 @@ async function RenderFirstExperience()
 	if (textField)
 	{
 		var field = textField.children[EXPERIENCE_1];
+		QueueOutput(field, BLINK, g_terminalCharacter);
 		QueueOutput(field, BLINK, g_terminalCharacter);
 		QueueOutput(field, TEXT, g_workPageText["work1"]);
 		QueueOutput(field, BLINK, g_terminalCharacter);
