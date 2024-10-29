@@ -57,7 +57,7 @@ async function DisplayText()
 	await RenderSecondExperience();
 	await RenderThirdExperience();
 	await RenderFourthExperience();
-	//await InfiniteBlink();
+	await InfiniteBlink();
 }
 
 async function RenderHeader()
@@ -241,7 +241,7 @@ async function InfiniteBlink()
 	var textField = document.querySelector(g_workPageId);
 	if (textField)
 	{
-		//var field = textField.children[P1_FIELD];
+		var field = textField.children[DESCRIPTION_4];
 		while (true)
 		{
 			QueueOutput(field, BLINK, g_terminalCharacter);
