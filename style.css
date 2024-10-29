@@ -41,11 +41,33 @@ body {
 	padding-right: 30%;
 }
 
-.page_text p {
+#work_page h3 {
+	margin-bottom: 0;
+}
+
+.experience_date {
+	margin-top: 0.5%;
+	margin-bottom: 0;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.experience_text {
+	margin-top: 0.5%
+}
+
+.page_text {
 	margin-left: 2%;
 	margin-right: 2%;
 }
 
 #about_page a, a:visited, a:hover, a:active {
   color: #0000EE;	
+}
+
+.bar {
+	padding-top: 0.1%;
+	padding-bottom: 0.1%;
+	background-color: black;
+	display: none;
 }

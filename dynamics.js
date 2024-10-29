@@ -1,7 +1,8 @@
 var g_outputQueue = [];
 var g_outputType = {
 	BLINK: "Blink",
-	TEXT: "Text"
+	TEXT: "Text",
+	UNHIDE: "Unhide"
 };
 
 function QueueOutput(htmlField, type, content)
@@ -33,6 +34,10 @@ async function RenderOutput()
 				await resolve2();
 				field.textContent += character;
 			}
+		}
+		else if (type === g_outputType.UNHIDE)
+		{
+			field.style.display = content;
 		}
 		else
 		{
